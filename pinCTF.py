@@ -59,7 +59,7 @@ def main():
     parser.add_argument('-sk','--skip',help="Skip extra favored paths",action='store_true')
 
     #Parse Arguments
-    args =parser.parse_args()
+    args = parser.parse_args()
 
     #Check for argument errors
     if not args.file:
@@ -199,7 +199,7 @@ def sendPinInputCommandThread(pin,library,binary,input,ident, inIMAP=False):
     ARGS = "{}/pin -t {}/inscount0.so -- {} ".format(pin,library,binary)
 
     #Send the output to /dev/null since it will pollute the screen otherwise
-    COMMAND = "cd pin_{} > /dev/null; echo {} | {} > /dev/null".format(ident,input,ARGS)
+    COMMAND = "cd pin_{} > /dev/null; echo {} | {} > /dev/null 2>&1".format(ident,input,ARGS)
     os.system(COMMAND)
 
     count = readCount("pin_{}/inscount.out".format(ident))
