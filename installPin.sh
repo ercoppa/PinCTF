@@ -28,10 +28,10 @@ mv obj-intel64 $WORKDIR/
 
 #IPython used for debugging scripts
 sudo apt install python3-pip
-pip3 install ipython
+python3 -m pip install --user ipython
 
 #Setup config with defaults
 printf "pin:%s
 library:%s
 count:%s
-seed:%s" $WORKDIR/pin $WORKDIR/obj-ia32 20 ABCD > config
+seed:%s" $WORKDIR/pin $WORKDIR/obj-intel64 20 ABCD > config
